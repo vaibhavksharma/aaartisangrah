@@ -1,0 +1,7 @@
+{
+  "name": "aartisangrah",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
