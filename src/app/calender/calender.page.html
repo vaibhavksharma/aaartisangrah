@@ -1,0 +1,484 @@
+<ion-header>
+   <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+         <ion-menu-button menu="first" ></ion-menu-button>
+      </ion-buttons>
+      <ion-title size=""></ion-title>
+   </ion-toolbar>
+   
+     <!-- <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar> -->
+</ion-header>
+<ion-content [fullscreen]="true" class="center">
+ <!-- <ion-grid style="background:#ff9933">
+ <ion-row style="margin-bottom: -28px;">
+      <ion-col><p style="font-size: 16px; color: #0c0b0b; font-weight: 600; ">  दिनांक : 27-12-2022 (मंगलवार) </p></ion-col>
+    
+  </ion-row>
+  
+    <ion-row style="margin-bottom:-28px;">
+    <ion-col><p style="font-size: 14px; color: #0c0b0b; font-weight: 600;">  पक्ष  :  शुक्ल </p></ion-col>
+    <ion-col> <p style="font-size: 14px; color: #0c0b0b; font-weight: 600;">    तिथि :  अष्टमी </p></ion-col>
+    <ion-col> <p style="font-size: 14px; color: #0c0b0b; font-weight: 600;">    राष्ट्रीय : चैत्र  </p></ion-col>
+  </ion-row>
+  
+      <ion-row >
+    <ion-col><p style="font-size: 14px; color: #0c0b0b; font-weight: 600;  margin-bottom: -4px;">राहु</p> <p style="font-size: 12px; color: #0c0b0b; font-weight: 600; ">12.30-1.30</p></ion-col>
+    <ion-col> <p style="font-size: 14px; color: #0c0b0b; font-weight: 600; margin-bottom: -4px;">  कुलिक </p> <p style="font-size: 12px; color: #0c0b0b; font-weight: 600;">12.30-1.30</p> </ion-col>
+    <ion-col> <p style="font-size: 14px; color: #0c0b0b; font-weight: 600; margin-bottom: -4px;">   यमगंड </p> <p style="font-size: 12px; color: #0c0b0b; font-weight: 600;">12.30-1.30</p></ion-col>
+  </ion-row>
+</ion-grid> -->
+
+
+   <ion-grid>
+      <ion-row class="date-picker" >
+         <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+         <ion-modal #modal [keepContentsMounted]="true">
+            <ng-template>
+               <ion-datetime [formControl]="selectedDate" locale="hi"  [min]="2010"
+               [max]="2030" presentation="month-year" id="datetime"></ion-datetime>
+               <ion-toolbar>
+
+                  <ion-buttons slot="end">
+                     <ion-button color="primary" (click)="confirm();modal.dismiss();" [strong]="true">Confirm</ion-button>
+                   </ion-buttons>
+               </ion-toolbar>
+            </ng-template>
+         </ion-modal>
+
+      </ion-row>
+   </ion-grid>
+ 
+   <ion-grid [fixed]="true" class="sud">
+      <div id="calendar"></div>
+   </ion-grid>
+
+  
+
+   <!-- <ion-grid [fixed]="true" class="sud">
+      <ion-row>
+         <div _ngcontent-eyt-c144="" class="calendar-month-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); height:100%; width: 100%;">
+            <button _ngcontent-eyt-c144=""  class="week-day"  style="    background: red;">
+           
+               <h1 class="uptext_th">रवि</h1>
+               
+            </button>
+            <button _ngcontent-eyt-c144=""  class="week-day">
+             
+               <h1 class="uptext_th">सोम </h1>
+              
+            </button>
+             <button _ngcontent-eyt-c144=""  class="week-day">
+             
+               <h1 class="uptext_th">मंगल</h1>
+              
+            </button>
+               <button _ngcontent-eyt-c144=""  class="week-day">
+              
+               <h1 class="uptext_th">बुध</h1>
+               
+            </button>
+           <button _ngcontent-eyt-c144=""  class="week-day">
+              
+               <h1 class="uptext_th">गुरु</h1>
+               
+            </button>
+           <button _ngcontent-eyt-c144=""  class="week-day">
+              
+               <h1 class="uptext_th">शुक्र</h1>
+              
+            </button>
+         <button _ngcontent-eyt-c144=""  class="week-day">
+              
+               <h1 class="uptext_th">शनि</h1>
+              
+            </button>
+         
+         </div>
+      </ion-row>
+   </ion-grid> -->
+   <!-- <ion-grid [fixed]="true" class="sud" style="
+    padding-top: 0;
+">
+      <ion-row>
+         <div _ngcontent-eyt-c144="" class="calendar-month-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); height:100%; width: 100%;">
+                <a href="cal-detail">  <button _ngcontent-eyt-c144=""  class="calendar-day"  style="     width: 100%; height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h" style="color: red;">1</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button></a> 
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">2</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+             <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">3</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+               <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">4</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">5</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">6</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+         <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h"style="color: blue;">7</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+          <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h" style="color: red;">8</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">9</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">10</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+             <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">11</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+             <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">12</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">13</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h"style="color: blue;">14</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h" style="color: red;">15</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+             <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">16</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">17</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">18</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">19</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">20</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h"style="color: blue;">21</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+          <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h" style="color: red;">22</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">23</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+          <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">24</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">25</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">26</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">27</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+          <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h"style="color: blue;">28</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h" style="color: red;">29</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+           <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">30</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+            <button _ngcontent-eyt-c144=""  class="calendar-day"  style=" height:100%; padding: 8px;">
+               <span class="uptext">दशमी शुक्ल </span>
+               <h1 class="uptext_h">31</h1>
+               <span class="bottomtext" ><img class="dpCellIcon" src="./assets/chand.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">मेष </span>
+               <p class="bottomtext2" ><img class="dpCellIcon" src="./assets/tara.png" alt="Moon"  style="
+                  width: 10px;
+                  height: 10px;
+                  ">अश्विनी 12:48</p>
+            </button>
+         </div>
+      </ion-row>
+   </ion-grid> 
+   -->
+</ion-content>
+

@@ -1,0 +1,16 @@
+<ion-searchbar
+inputmode="search"
+#searchInput [debounce]="500" (ionChange)="handleChange($event)" (ionCancel)="onCancel()" show-cancel-button="always"
+  placeholder="Search here"></ion-searchbar>
+  <p *ngIf="convertedValue" class="searching-for">Searching for {{convertedValue}}</p>
+  <br>
+  <ion-content >
+    <ion-list [inset]="true">
+      <ion-item *ngFor="let l of $searchResult | async" (click)="onItemClick(l)" >
+        <ion-avatar slot="start">
+          <img  [src]="l.image" />
+        </ion-avatar>
+        <ion-label> {{l.title}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>

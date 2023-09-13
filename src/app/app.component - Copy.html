@@ -1,0 +1,56 @@
+<ion-app>
+  <ion-header [translucent]= "true" >
+    <ion-toolbar color="primary">
+	  <ion-buttons slot="start"> <ion-menu-button menu="first" ></ion-menu-button>
+	   </ion-buttons>
+      <ion-title size="large">आरती संग्रह</ion-title>
+    </ion-toolbar>
+
+  </ion-header>
+  
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>आरती संग्रह</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item> <ion-icon name="home-outline"></ion-icon>  HOME ( मुख्या पृष्ठ)</ion-item>
+      <ion-item>    <ion-icon name="information-circle"></ion-icon>हमारे बारे में</ion-item>
+      <ion-item> <ion-icon name="share-social-outline"></ion-icon>मित्रों के साथ शेयर करे</ion-item>
+      <ion-item> <ion-icon name="document-text-outline"></ion-icon>रेटिंग दे</ion-item>
+     
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+  <ion-router-outlet id ="main" ></ion-router-outlet>
+   <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+<ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+      <ion-badge>6</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="aartilist">
+	
+
+	
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Speakers</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="aartidetails">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Map</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="about">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-app>

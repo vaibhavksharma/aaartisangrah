@@ -1,0 +1,20 @@
+<ion-header>
+ <ion-toolbar color="primary">
+	  <ion-buttons slot="start"> <ion-menu-button menu="first" ></ion-menu-button>
+	   </ion-buttons>
+      <ion-title size="">आरती संग्रह</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+<ion-list scroll="true">
+<ion-item detail *ngFor="let item of listPageData" routerLink="/details/{{ item.id }}">
+  <ion-thumbnail slot="start">
+        <img alt="" src="https://greatbonanza.com/aarti/assets/images/{{ item.image }}" />
+  </ion-thumbnail>
+  <ion-label>
+{{ item.title }}
+  </ion-label>
+</ion-item>
+</ion-list>
+</ion-content>

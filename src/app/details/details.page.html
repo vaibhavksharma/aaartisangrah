@@ -1,0 +1,18 @@
+<ion-header>
+ <ion-toolbar color="primary">
+	  <ion-buttons slot="start"> <ion-menu-button menu="first" ></ion-menu-button>
+	   </ion-buttons>
+      <ion-title size="">आरती संग्रह</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ detailsPageData.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div [innerHTML]="detailsPageData.content"></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

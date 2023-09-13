@@ -1,0 +1,101 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+// calendar
+#calendar {
+    height: 800px;
+    --fc-border-color: blue;
+    table {
+        border: none;
+    }
+   .fc-daygrid-day-frame {
+        min-height: 100px;
+    }
+    th[role="columnheader"] {
+        &:nth-child(1) {
+            background: red;
+        }
+    }
+    .fc-col-header-cell {
+        height: 75px;
+        // display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        background: blue;
+        border-top-width: 0px;
+        border-left-width: 0px;
+        border-right-width: 0px;
+        a{
+            font-size: 20px;
+            color: #fff;
+        }
+       
+
+        div{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    }
+    .fc-daygrid-day-top {
+        justify-content: center;
+    }
+    .fc-daygrid-day-number {
+        font-size: 22px !important;
+        font-weight: bold !important;
+        color: #000;
+    }
+    .fc-day-sun  .fc-daygrid-day-number {
+        color: red;
+    }
+    .fc-daygrid-event-dot, .fc-event-time {
+        display: none;
+    }
+    .fc-daygrid-event {
+        white-space: unset;
+    }
+
+    .fc-event-title {
+       
+        text-align: center;
+        // color: #020202;
+        font-weight: 400;
+        line-height: calc(1em + 5px) !important;
+    }
+    .event-main {
+        // font-size: 1em;
+        color: blue !important;
+    }
+    .event-sec, .event-tri {
+        color: #020202 !important; 
+    }
+}
